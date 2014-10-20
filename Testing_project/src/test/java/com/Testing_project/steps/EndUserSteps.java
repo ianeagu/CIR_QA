@@ -1,42 +1,36 @@
 package com.Testing_project.steps;
 
-import com.Testing_project.pages.DictionaryPage;
 import net.thucydides.core.annotations.Step;
-import net.thucydides.core.pages.Pages;
+import net.thucydides.core.annotations.findby.FindBy;
+import net.thucydides.core.pages.WebElementFacade;
 import net.thucydides.core.steps.ScenarioSteps;
 
-import static ch.lambdaj.Lambda.join;
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.containsString;
-import static org.hamcrest.Matchers.hasItem;
+import com.Testing_project.pages.LogInPage;
+import com.Testing_project.utilities.Constants;
 
 public class EndUserSteps extends ScenarioSteps {
 
-    DictionaryPage dictionaryPage;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
-    @Step
-    public void enters(String keyword) {
-        dictionaryPage.enter_keywords(keyword);
-    }
+	LogInPage firstPage;
 
-    @Step
-    public void starts_search() {
-        dictionaryPage.lookup_terms();
-    }
 
-    @Step
-    public void should_see_definition(String definition) {
-        assertThat(dictionaryPage.getDefinitions(), hasItem(containsString(definition)));
-    }
+	@Step
+	public void is_the_home_page() {
+		firstPage.open();
+		getDriver().manage().window().maximize();
+		firstPage.click_SignIn_button();
+		
+	}
 
-    @Step
-    public void is_the_home_page() {
-        dictionaryPage.open();
-    }
+	@Step
+	public void login()
+	{
+		firstPage.logInAs();
+	}
+	
 
-    @Step
-    public void looks_for(String term) {
-        enters(term);
-        starts_search();
-    }
 }
