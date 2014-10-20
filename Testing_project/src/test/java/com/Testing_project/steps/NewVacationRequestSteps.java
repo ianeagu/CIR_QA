@@ -22,7 +22,7 @@ public class NewVacationRequestSteps extends ScenarioSteps {
 	}
 	
 	@Step
-	public void assureCreateVacationTitle()
+	public void verifyThatYouAreOnCreateNewVacationRequestPage()
 	{
 		newVacationRequestPage.verifyThatYouAreOnCreateNewVacationRequestPage();
 	}

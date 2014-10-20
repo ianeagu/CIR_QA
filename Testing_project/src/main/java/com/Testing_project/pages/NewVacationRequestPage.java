@@ -35,7 +35,7 @@ public class NewVacationRequestPage extends PageObject {
     }
     
     public void verifyThatYouAreOnCreateNewVacationRequestPage(){
-        Assert.assertTrue("you are not on the correct page!",createVacationTitle.getText().toLowerCase().contains(Constants.CREATE_NEW_VACATION_REQUEST.toLowerCase()));  
+        Assert.assertTrue("You are not on the correct page!",createVacationTitle.getText().toLowerCase().contains(Constants.CREATE_NEW_VACATION_REQUEST.toLowerCase()));  
       	
     }
     

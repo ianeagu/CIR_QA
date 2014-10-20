@@ -13,8 +13,10 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 
+import com.Testing_project.pages.HomePage;
 //import com.Testing_project.requirements.Application;
 import com.Testing_project.steps.EndUserSteps;
+import com.Testing_project.steps.HomeSteps;
 import com.Testing_project.steps.NewVacationRequestSteps;
 import com.Testing_project.utilities.Constants;
 
@@ -29,10 +31,15 @@ public class RamonaTest {
     public Pages pages;
 
     @Steps
-    public NewVacationRequestSteps endUser;
-
+    EndUserSteps endUserSteps;
+    
     @Steps
     EndUserSteps loginSteps;
+    
+    @Steps
+    HomeSteps homeSteps;
+    @Steps
+    NewVacationRequestSteps newVacationRequestSteps;
     
     @Test
     public void test_New_Req()
@@ -40,6 +47,9 @@ public class RamonaTest {
     	
     	loginSteps.is_the_home_page();
     	loginSteps.login();
+    	homeSteps.clickVacationTab();
+    	newVacationRequestSteps.clickNewVacationRequest();
+    	newVacationRequestSteps.verifyThatYouAreOnCreateNewVacationRequestPage();
     	
 //    	endUser.clickNewVacationRequest();
 //    	endUser.assureCreateVacationTitle();
