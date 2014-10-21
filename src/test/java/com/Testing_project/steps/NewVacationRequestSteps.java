@@ -46,11 +46,30 @@ public class NewVacationRequestSteps extends ScenarioSteps {
 		
 	}
 	
+
 	@Step
-	public void clickNewVacationSickLeaveBtn()
+	public void clickNewVacationRequestHolidayBtn()
 	{
-		newVacationRequestPage.clickNewVacationSickLeaveBtn();
+		newVacationRequestPage.clickNewVacationRequestHolidayBtn();
 	}
+	   
+	@Step
+	public void clickNewVacationRequestVacationWithoutPaymentBtn()
+    {
+		newVacationRequestPage.clickNewVacationRequestVacationWithoutPaymentBtn();
+	}
+	
+	@Step
+	public void clickNewVacationRequestSpecialVacationBtn()
+	{
+		newVacationRequestPage.clickNewVacationRequestSpecialVacationBtn();
+	}
+	
+	@Step
+	public void clickNewVacationRequestSickLeaveBtn()
+	{
+		newVacationRequestPage.clickNewVacationRequestSickLeaveBtn();
+    }
 	
 	@Step
 	public void clickNewVacationSaveBtn()
@@ -58,18 +77,18 @@ public class NewVacationRequestSteps extends ScenarioSteps {
 		newVacationRequestPage.clickNewVacationSaveBtn();
 	}
 	
-//	@Step
-//	public void clickNewVacationBackBtn()
-//	{
-//		newVacationRequestPage.clickNewVacationBackBtn();
-//	}
-//	
-//	@Step
-//	public void verifyThatYouAreOnMyRequestsPage()
-//	{
-//	newVacationRequestPage.verifyThatYouAreOnMyRequestsPage();
-//		
-//	}
+	@Step
+	public void clickNewVacationBackBtn()
+	{
+		newVacationRequestPage.clickNewVacationBackBtn();
+	}
 	
+	@Step
+	public void verifyThatYouAreOnMyRequestsPage()
+	{
+	newVacationRequestPage.verifyThatYouAreOnMyRequestsPage();
+		
+	}
+
 	}
 	
