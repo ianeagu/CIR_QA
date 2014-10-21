@@ -1,15 +1,19 @@
 package com.Testing_project.pages;
 
-import org.openqa.selenium.WebElement;
-
 import net.thucydides.core.annotations.findby.FindBy;
 import net.thucydides.core.pages.PageObject;
+import net.thucydides.core.pages.WebElementFacade;
 
 public class HomePage extends PageObject {
-	@FindBy(css = "a[href*='vacation']")
-	private WebElement vacationTab;
 
-	public void clickVacationTab() {
-		vacationTab.click();
+	//buton de "Sign In" din "Home Page"
+	@FindBy(css = "a[id='sign-in']")
+	public WebElementFacade signInButton_homePage;	
+	
+	
+    public void click_SignIn_button() {
+		signInButton_homePage.click();
 	}
+  
+    
 }

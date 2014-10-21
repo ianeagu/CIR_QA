@@ -2,14 +2,13 @@ package com.Testing_project.pages;
 
 import java.util.List;
 
-import junit.framework.Assert;
 import net.thucydides.core.pages.PageObject;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
-public class VacationPage extends PageObject {
-	@SuppressWarnings("deprecation")
+public class MyRequestsPage extends PageObject {
 	public void verifyThatYouAreOnVacationPage(String navigationHeaderTitle) {
 		List<WebElement> navHeaders = getDriver().findElements(
 				By.cssSelector("div.content-title"));

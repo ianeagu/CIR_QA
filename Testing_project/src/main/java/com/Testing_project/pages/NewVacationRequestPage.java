@@ -1,28 +1,21 @@
 package com.Testing_project.pages;
 
-import ch.lambdaj.function.convert.Converter;
-import net.thucydides.core.annotations.DefaultUrl;
-
-import org.junit.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-
-import com.Testing_project.utilities.Constants;
-
-import net.thucydides.core.pages.WebElementFacade;
-import net.thucydides.core.annotations.findby.FindBy;
-import net.thucydides.core.pages.PageObject;
-
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.List;
 
-import static ch.lambdaj.Lambda.convert;
+import net.thucydides.core.annotations.DefaultUrl;
+import net.thucydides.core.annotations.findby.FindBy;
+import net.thucydides.core.pages.PageObject;
+import net.thucydides.core.pages.WebElementFacade;
 
-@DefaultUrl("http://192.168.1.68:9090/vacation")
+import org.junit.Assert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+
+import com.Testing_project.utilities.Constants;
+
 public class NewVacationRequestPage extends PageObject {
 
 	@FindBy(css = "div[class='aui-column-content aui-column-content-first '] div:nth-child(1) ul li:nth-child(2) a")
