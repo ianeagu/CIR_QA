@@ -7,5 +7,7 @@ public class Constants {
 	public static final String Password = "Ev@zon01";
 	
 	public static final String CREATE_NEW_VACATION_REQUEST= "Create a new vacation request";
+	public static final String MY_REQUESTS= "Turn to my requests page";
+	
 	
 }

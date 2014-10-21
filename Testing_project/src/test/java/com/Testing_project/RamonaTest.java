@@ -1,5 +1,7 @@
 package com.Testing_project;
 
+import java.text.ParseException;
+
 import net.thucydides.core.annotations.Issue;
 import net.thucydides.core.annotations.ManagedPages;
 import net.thucydides.core.annotations.Pending;
@@ -38,11 +40,12 @@ public class RamonaTest {
     
     @Steps
     HomeSteps homeSteps;
+    
     @Steps
     NewVacationRequestSteps newVacationRequestSteps;
     
     @Test
-    public void test_New_Req()
+    public void test_New_Req() throws ParseException
     {
     	
     	loginSteps.is_the_home_page();
@@ -50,10 +53,17 @@ public class RamonaTest {
     	homeSteps.clickVacationTab();
     	newVacationRequestSteps.clickNewVacationRequest();
     	newVacationRequestSteps.verifyThatYouAreOnCreateNewVacationRequestPage();
+    	newVacationRequestSteps.selectStartDate(2, 22, 2014);
+    	newVacationRequestSteps.selectEndDate(2, 22, 2014);
+    	newVacationRequestSteps.clickNewVacationSickLeaveBtn();
+    	newVacationRequestSteps.clickNewVacationSaveBtn();
+//    	newVacationRequestSteps.clickNewVacationBackBtn();
+//    	newVacationRequestSteps.verifyThatYouAreOnMyRequestsPage();
+//    	
     	
-//    	endUser.clickNewVacationRequest();
-//    	endUser.assureCreateVacationTitle();
     	
+    	
+   
     }
   
 } 
