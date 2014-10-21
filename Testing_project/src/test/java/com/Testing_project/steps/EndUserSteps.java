@@ -20,7 +20,8 @@ public class EndUserSteps extends ScenarioSteps {
 
 	@Step
 	public void is_the_home_page() {
-		firstPage.open();
+//		firstPage.open();
+		getDriver().get(Constants.URL);
 		getDriver().manage().window().maximize();
 		firstPage.click_SignIn_button();
 		
