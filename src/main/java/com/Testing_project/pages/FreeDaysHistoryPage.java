@@ -1,5 +1,11 @@
 package com.Testing_project.pages;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import org.openqa.selenium.WebElement;
+
+import net.thucydides.core.annotations.findby.By;
 import net.thucydides.core.annotations.findby.FindBy;
 import net.thucydides.core.pages.PageObject;
 import net.thucydides.core.pages.WebElementFacade;
@@ -44,6 +50,15 @@ public class FreeDaysHistoryPage extends PageObject {
 	public void clickApplyBtn() {
 		applyBtn.click();
 
+	}
+	
+	public List<String> returnFreeDaysHistory(){
+		  List<WebElement> OperationList = getDriver().findElements(By.cssSelector("td[class*='header.type']"));
+		  List<String> OperationStrList = new ArrayList<String>();
+		  for (WebElement i : OperationList){
+			  OperationStrList.add(i.getText());
+		  }
+		  return OperationStrList;
 	}
 
 }

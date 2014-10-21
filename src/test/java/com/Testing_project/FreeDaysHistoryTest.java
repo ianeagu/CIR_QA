@@ -1,7 +1,5 @@
 package com.Testing_project;
 
-import java.text.ParseException;
-
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.ManagedPages;
 import net.thucydides.core.annotations.Steps;
@@ -51,5 +49,8 @@ public class FreeDaysHistoryTest {
 		freeDaysHistorySteps.selectOneToFiveDaysNumber();
 		freeDaysHistorySteps.selectAddedDaysOperation();
 		freeDaysHistorySteps.clickApplyBtn();
+		freeDaysHistorySteps.checkOperationDoesNotContain("Added");
 	}
+	
+	
 }
