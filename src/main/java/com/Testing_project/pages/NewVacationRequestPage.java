@@ -5,7 +5,6 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.List;
 
-import net.thucydides.core.annotations.DefaultUrl;
 import net.thucydides.core.annotations.findby.FindBy;
 import net.thucydides.core.pages.PageObject;
 import net.thucydides.core.pages.WebElementFacade;
@@ -45,8 +44,25 @@ public class NewVacationRequestPage extends PageObject {
 	@FindBy(css = "div[style*='block'] td.dp_previous")
 	private WebElementFacade previousButton;
 	
-	@FindBy(css="#_evovacation_WAR_EvoVacationportlet_type_CM")
-	private WebElementFacade newVacationSickLeaveBtn;
+	@FindBy(css = "#_evovacation_WAR_EvoVacationportlet_type_CO")
+	private WebElementFacade newVacationRequestHolidayBtn;
+	
+	@FindBy(css = "#_evovacation_WAR_EvoVacationportlet_type_CF")
+	private WebElementFacade newVacationRequestVacationWithoutPaymentBtn;
+	
+	@FindBy(css = "#_evovacation_WAR_EvoVacationportlet_type_CS")
+	private WebElementFacade newVacationRequestSpecialVacationBtn;
+	
+	
+	@FindBy(css = "#_evovacation_WAR_EvoVacationportlet_type_CM")
+	private WebElementFacade newVacationRequestSickLeaveBtn;
+	
+	@FindBy(css="#_evovacation_WAR_EvoVacationportlet_newVacationComment")
+	private WebElementFacade newVacationRequestsAddCommentBtn;
+	
+	@FindBy(css="#_evovacation_WAR_EvoVacationportlet_commentContent")
+	private WebElementFacade newVacationRequestsCommentSpace;
+	
 	
 	@FindBy(css="#_evovacation_WAR_EvoVacationportlet_saveButton")
 	private WebElementFacade newVacationSaveBtn;
@@ -104,23 +120,49 @@ public class NewVacationRequestPage extends PageObject {
 
 	}
 	
-	public void clickNewVacationSickLeaveBtn(){
-		newVacationSickLeaveBtn.click();
+	
+	public void clickNewVacationRequestHolidayBtn(){
+		newVacationRequestHolidayBtn.click();
 	}
+	
+	public void clickNewVacationRequestVacationWithoutPaymentBtn(){
+		newVacationRequestVacationWithoutPaymentBtn.click();
+	}
+	
+	public void clickNewVacationRequestSpecialVacationBtn(){
+		newVacationRequestSpecialVacationBtn.click();
+	}
+	
+	public void clickNewVacationRequestSickLeaveBtn(){
+		newVacationRequestSickLeaveBtn.click();	
+	}
+	
+	public void clickNewVacationRequestAddComment(){
+		newVacationRequestsAddCommentBtn.click();	
+	}
+	
+	public void clickNewVacationRequestCommentSpace(){
+		newVacationRequestsCommentSpace.click();	
+	}
+	
+	public void typeComment(String comment){
+		newVacationRequestsCommentSpace.sendKeys(comment);
+	}	
 	
 	public void clickNewVacationSaveBtn(){
 		newVacationSaveBtn.click();
 	}
-	
-//	public void clickNewVacationBackBtn() {
-//		newVacationBackBtn.click();
-//	}
-//
-//
-//	 public void verifyThatYouAreOnMyRequestsPage(){
-//	 Assert.assertTrue("You are not on the correct page!",myRequestsTitle.getText().toLowerCase().contains(Constants.MY_REQUESTS.toLowerCase()));
-//	
-//	 }
+
 
 	
+	public void clickNewVacationBackBtn() {
+		newVacationBackBtn.click();
+	}
+
+
+	 public void verifyThatYouAreOnMyRequestsPage(){
+	 Assert.assertTrue("You are not on the correct page!",myRequestsTitle.getText().toLowerCase().contains(Constants.MY_REQUESTS.toLowerCase()));
+	 }
+	
 }
+	

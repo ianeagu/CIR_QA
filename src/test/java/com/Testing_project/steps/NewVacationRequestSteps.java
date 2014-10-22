@@ -2,19 +2,18 @@ package com.Testing_project.steps;
 
 import java.text.ParseException;
 
-import com.Testing_project.pages.NewVacationRequestPage;
-
 import net.thucydides.core.annotations.Step;
-import net.thucydides.core.pages.Pages;
 import net.thucydides.core.steps.ScenarioSteps;
-import static ch.lambdaj.Lambda.join;
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.containsString;
-import static org.hamcrest.Matchers.hasItem;
+
+import com.Testing_project.pages.NewVacationRequestPage;
 
 public class NewVacationRequestSteps extends ScenarioSteps {
 
-    NewVacationRequestPage newVacationRequestPage;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	NewVacationRequestPage newVacationRequestPage;
 
 	@Step
 	public void clickNewVacationRequest()
@@ -46,11 +45,52 @@ public class NewVacationRequestSteps extends ScenarioSteps {
 		
 	}
 	
+
 	@Step
-	public void clickNewVacationSickLeaveBtn()
+	public void clickNewVacationRequestHolidayBtn()
 	{
-		newVacationRequestPage.clickNewVacationSickLeaveBtn();
+		newVacationRequestPage.clickNewVacationRequestHolidayBtn();
 	}
+	   
+	@Step
+	public void clickNewVacationRequestVacationWithoutPaymentBtn()
+    {
+		newVacationRequestPage.clickNewVacationRequestVacationWithoutPaymentBtn();
+	}
+	
+	@Step
+	public void clickNewVacationRequestSpecialVacationBtn()
+	{
+		newVacationRequestPage.clickNewVacationRequestSpecialVacationBtn();
+	}
+	
+	@Step
+	public void clickNewVacationRequestSickLeaveBtn()
+	{
+		newVacationRequestPage.clickNewVacationRequestSickLeaveBtn();
+    }
+	
+	@Step
+	public void clickNewVacationRequestAddCommentBtn()
+	{
+		newVacationRequestPage.clickNewVacationRequestAddComment();
+    }
+	
+	@Step
+	public void clickNewVacationRequestCommentSpace()
+	{
+		newVacationRequestPage.clickNewVacationRequestCommentSpace();
+    }
+	
+	
+	@Step
+	public void clickNewVacationRequestAddComment(String comment)
+	{
+		
+		newVacationRequestPage.typeComment(comment);
+    }
+	
+	
 	
 	@Step
 	public void clickNewVacationSaveBtn()
@@ -58,18 +98,20 @@ public class NewVacationRequestSteps extends ScenarioSteps {
 		newVacationRequestPage.clickNewVacationSaveBtn();
 	}
 	
-//	@Step
-//	public void clickNewVacationBackBtn()
-//	{
-//		newVacationRequestPage.clickNewVacationBackBtn();
-//	}
-//	
-//	@Step
-//	public void verifyThatYouAreOnMyRequestsPage()
-//	{
-//	newVacationRequestPage.verifyThatYouAreOnMyRequestsPage();
-//		
-//	}
+	@Step
+	public void clickNewVacationBackBtn()
+	{
+		newVacationRequestPage.clickNewVacationBackBtn();
+	}
 	
+	@Step
+	public void verifyThatYouAreOnMyRequestsPage()
+	{
+	newVacationRequestPage.verifyThatYouAreOnMyRequestsPage();
+		
+	}
+	
+	
+
 	}
 	

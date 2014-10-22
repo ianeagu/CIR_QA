@@ -1,9 +1,8 @@
 package com.Testing_project.steps;
 
-import com.Testing_project.pages.MyRequestsPage;
-
-import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
+
+import com.Testing_project.pages.MyRequestsPage;
 
 public class VacationSteps  extends ScenarioSteps{
 

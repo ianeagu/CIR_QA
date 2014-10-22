@@ -50,9 +50,17 @@ public class RamonaTest {
     	homeSteps.clickVacationTab();
     	newVacationRequestSteps.clickNewVacationRequest();
     	newVacationRequestSteps.verifyThatYouAreOnCreateNewVacationRequestPage();
-    	newVacationRequestSteps.selectStartDate(2, 22, 2014);
-    	newVacationRequestSteps.selectEndDate(2, 22, 2014);
-    	newVacationRequestSteps.clickNewVacationSickLeaveBtn();
+    	newVacationRequestSteps.selectStartDate(11, 12, 2014);
+    	newVacationRequestSteps.selectEndDate(11, 12, 2014);
+    	newVacationRequestSteps.clickNewVacationRequestHolidayBtn();
+//    	newVacationRequestSteps.clickNewVacationRequestVacationWithoutPaymentBtn();
+//     	newVacationRequestSteps.clickNewVacationRequestSpecialVacationBtn();
+//    	newVacationRequestSteps.clickNewVacationRequestSickLeaveBtn();
+//    	
+    	newVacationRequestSteps.clickNewVacationRequestAddCommentBtn();
+    	newVacationRequestSteps.clickNewVacationRequestCommentSpace();
+    	newVacationRequestSteps.clickNewVacationRequestAddComment("I'll go in a trip");
+    	
     	newVacationRequestSteps.clickNewVacationSaveBtn();
 //    	newVacationRequestSteps.clickNewVacationBackBtn();
 //    	newVacationRequestSteps.verifyThatYouAreOnMyRequestsPage();
