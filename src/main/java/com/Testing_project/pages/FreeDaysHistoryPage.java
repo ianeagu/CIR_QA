@@ -52,14 +52,37 @@ public class FreeDaysHistoryPage extends PageObject {
 
 	}
 
-	public List<String> returnFreeDaysHistory() {
-		List<WebElement> OperationList = getDriver().findElements(
+	public List<String> returnFreeDaysHistoryType() {
+		List<WebElement> TypeList = getDriver().findElements(
 				By.cssSelector("td[class*='header.type']"));
+		List<String> TypeStrList = new ArrayList<String>();
+		for (WebElement i : TypeList) {
+			TypeStrList.add(i.getText());
+		}
+		return TypeStrList;
+	}
+
+	public List<String> returnFreeDaysHistoryOperation() {
+		List<WebElement> OperationList = getDriver().findElements(
+				By.cssSelector("td[class*='header.operation']"));
 		List<String> OperationStrList = new ArrayList<String>();
 		for (WebElement i : OperationList) {
 			OperationStrList.add(i.getText());
 		}
 		return OperationStrList;
 	}
+
+	public List<Integer> returnFreeDaysHistoryNumber() {
+		List<WebElement> NumberList = getDriver().findElements(
+				By.cssSelector("td[class*='header.number']"));
+		List<Integer> NumberIntList = new ArrayList<Integer>();
+		for (WebElement i : NumberList) {
+			NumberIntList.add(Integer.parseInt(i.getText()));
+		}
+		return NumberIntList;
+	}
+	
+	
+	
 
 }

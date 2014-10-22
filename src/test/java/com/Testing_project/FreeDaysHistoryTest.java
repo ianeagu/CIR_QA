@@ -36,8 +36,7 @@ public class FreeDaysHistoryTest {
 
 	@Steps
 	FreeDaysHistorySteps freeDaysHistorySteps;
-	
-	
+
 	@Test
 	public void freeDaysHistory() {
 
@@ -49,8 +48,9 @@ public class FreeDaysHistoryTest {
 		freeDaysHistorySteps.selectOneToFiveDaysNumber();
 		freeDaysHistorySteps.selectAddedDaysOperation();
 		freeDaysHistorySteps.clickApplyBtn();
-		freeDaysHistorySteps.checkOperationDoesNotContain("Extra Days");
+		freeDaysHistorySteps.checkTypeDoesNotContain("Extra Days");
+		freeDaysHistorySteps.checkOperationDoesNotContain("Removed");
+		freeDaysHistorySteps.checkDaysNotContain(2,5);
 	}
-	
-	
+
 }
