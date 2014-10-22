@@ -50,25 +50,25 @@ public class RamonaTest {
     	homeSteps.clickVacationTab();
     	newVacationRequestSteps.clickNewVacationRequest();
     	newVacationRequestSteps.verifyThatYouAreOnCreateNewVacationRequestPage();
-    	newVacationRequestSteps.selectStartDate(11, 12, 2014);
-    	newVacationRequestSteps.selectEndDate(11, 12, 2014);
-    	newVacationRequestSteps.clickNewVacationRequestHolidayBtn();
+    	newVacationRequestSteps.selectStartDate(8, 20, 2014);
+    	newVacationRequestSteps.selectEndDate(8, 20, 2014);
+//    	newVacationRequestSteps.clickNewVacationRequestHolidayBtn();
 //    	newVacationRequestSteps.clickNewVacationRequestVacationWithoutPaymentBtn();
-//     	newVacationRequestSteps.clickNewVacationRequestSpecialVacationBtn();
+        newVacationRequestSteps.clickNewVacationRequestSpecialVacationBtn();
+    	newVacationRequestSteps.chooseChildren();
 //    	newVacationRequestSteps.clickNewVacationRequestSickLeaveBtn();
 //    	
     	newVacationRequestSteps.clickNewVacationRequestAddCommentBtn();
     	newVacationRequestSteps.clickNewVacationRequestCommentSpace();
     	newVacationRequestSteps.clickNewVacationRequestAddComment("I'll go in a trip");
-    	
     	newVacationRequestSteps.clickNewVacationSaveBtn();
-//    	newVacationRequestSteps.clickNewVacationBackBtn();
-//    	newVacationRequestSteps.verifyThatYouAreOnMyRequestsPage();
-//    	
-    	
-    	
-    	
-   
+//    	newVacationRequestSteps.clickNewVacationWithdrawBtn();
+     	newVacationRequestSteps.clickNewVacationEditBtn();
+//    	newVacationRequestSteps.verifyThatYourVacationWasWithdrawPage();
+    	newVacationRequestSteps.verifyThatYourVacationWasEditPage();
+//    	newVacationRequestSteps.verifyThatYouAreOnVacationInfoPage();
+//     	newVacationRequestSteps.clickVacationInfoBackBtn();
+
     }
   
 } 
