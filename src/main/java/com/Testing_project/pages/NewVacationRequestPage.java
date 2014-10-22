@@ -23,12 +23,6 @@ public class NewVacationRequestPage extends PageObject {
 	@FindBy(css = "h1[class='header-title'] span")
 	private WebElementFacade createVacationTitle;
 
-	@FindBy(css = "#_evovacation_WAR_EvoVacationportlet_TabsBack")
-	private WebElementFacade newVacationBackBtn;
-
-	@FindBy(css = "content-title")
-	private WebElementFacade myRequestsTitle;
-
 	@FindBy(css = "#_evovacation_WAR_EvoVacationportlet_startDate")
 	private WebElementFacade startDateBox;
 
@@ -53,7 +47,9 @@ public class NewVacationRequestPage extends PageObject {
 	@FindBy(css = "#_evovacation_WAR_EvoVacationportlet_type_CS")
 	private WebElementFacade newVacationRequestSpecialVacationBtn;
 	
-	
+	@FindBy(css = "option[value='CHILD_BIRTH']")
+	private WebElementFacade childbirthvacation;
+		
 	@FindBy(css = "#_evovacation_WAR_EvoVacationportlet_type_CM")
 	private WebElementFacade newVacationRequestSickLeaveBtn;
 	
@@ -66,7 +62,26 @@ public class NewVacationRequestPage extends PageObject {
 	
 	@FindBy(css="#_evovacation_WAR_EvoVacationportlet_saveButton")
 	private WebElementFacade newVacationSaveBtn;
+	
+	@FindBy(css="#_evovacation_WAR_EvoVacationportlet_withdrawnVacationRequest")
+	private WebElementFacade newVacationWithdrawBtn;
+	
+	@FindBy(css="#_evovacation_WAR_EvoVacationportlet_editVacationRequest")
+	private WebElementFacade newVacationEditBtn;
+	
+	@FindBy(css="span[class='aui-panel-hd-text']")
+	private WebElementFacade newVacationRequestsEditVacationTitle;
+	
+	@FindBy(css="#mainVacationContent > div > div.view-vacation > div.aui-column.aui-w20.vacation-actions.aui-column-first > div > div > div:nth-child(2) > div > i")
+	private WebElementFacade newVacationRequestsWithdrawVacationTitle;
+	
+	@FindBy(css="#mainVacationContent > div > div.view-vacation > div.aui-column.aui-w70.vacation-info-column.aui-column-first > div > div.content-title")
+	private WebElementFacade newVacationRequestsVacationInfoTitle;
+	
+	@FindBy(css = "#_evovacation_WAR_EvoVacationportlet_TabsBack")
+	private WebElementFacade vacationInfoBackBtn;
 
+	
 	public void clickNewVacationRequest() {
 		newVacationRequestBtn.click();
 
@@ -133,6 +148,11 @@ public class NewVacationRequestPage extends PageObject {
 		newVacationRequestSpecialVacationBtn.click();
 	}
 	
+	public void chooseChildBirth() {
+		childbirthvacation.click();
+
+		 }
+	
 	public void clickNewVacationRequestSickLeaveBtn(){
 		newVacationRequestSickLeaveBtn.click();	
 	}
@@ -152,17 +172,33 @@ public class NewVacationRequestPage extends PageObject {
 	public void clickNewVacationSaveBtn(){
 		newVacationSaveBtn.click();
 	}
-
-
 	
-	public void clickNewVacationBackBtn() {
-		newVacationBackBtn.click();
+	public void clickNewVacationWithdrawBtn(){
+		newVacationWithdrawBtn.click();
+	}
+	
+	public void clickNewVacationEditBtn(){
+		newVacationEditBtn.click();
+	}
+	
+	public void verifyThatYourVacationWasWithdrawPage(){
+		 Assert.assertTrue("You are not on the correct page!",newVacationRequestsWithdrawVacationTitle.getText().toLowerCase().contains(Constants.WITHDRAW_VACATION.toLowerCase()));
+		 }
+	
+	
+	public void verifyThatYourVacationWasEditPage(){
+		 Assert.assertTrue("You are not on the correct page!",newVacationRequestsEditVacationTitle.getText().toLowerCase().contains(Constants.EDIT_VACATION.toLowerCase()));
+		 }
+	
+	public void verifyThatYouAreOnVacationInfoPage(){
+		 Assert.assertTrue("You are not on the correct page!",newVacationRequestsVacationInfoTitle.getText().toLowerCase().contains(Constants.VACATION_INFO.toLowerCase()));
+		 }
+	 
+	
+	public void clickVacationInfoBackBtn() {
+		vacationInfoBackBtn.click();
 	}
 
-
-	 public void verifyThatYouAreOnMyRequestsPage(){
-	 Assert.assertTrue("You are not on the correct page!",myRequestsTitle.getText().toLowerCase().contains(Constants.MY_REQUESTS.toLowerCase()));
-	 }
 	
 }
 	

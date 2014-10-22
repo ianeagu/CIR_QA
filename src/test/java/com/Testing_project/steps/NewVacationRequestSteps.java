@@ -65,6 +65,11 @@ public class NewVacationRequestSteps extends ScenarioSteps {
 	}
 	
 	@Step
+	  public void chooseChildren(){
+	   newVacationRequestPage.chooseChildBirth();
+	  }
+	
+	@Step
 	public void clickNewVacationRequestSickLeaveBtn()
 	{
 		newVacationRequestPage.clickNewVacationRequestSickLeaveBtn();
@@ -99,17 +104,44 @@ public class NewVacationRequestSteps extends ScenarioSteps {
 	}
 	
 	@Step
-	public void clickNewVacationBackBtn()
+	public void clickNewVacationWithdrawBtn()
 	{
-		newVacationRequestPage.clickNewVacationBackBtn();
+		newVacationRequestPage.clickNewVacationWithdrawBtn();
 	}
 	
 	@Step
-	public void verifyThatYouAreOnMyRequestsPage()
+	public void clickNewVacationEditBtn()
 	{
-	newVacationRequestPage.verifyThatYouAreOnMyRequestsPage();
-		
+		newVacationRequestPage.clickNewVacationEditBtn();
 	}
+	
+	@Step
+	public void verifyThatYourVacationWasWithdrawPage()
+	{
+		newVacationRequestPage.verifyThatYourVacationWasWithdrawPage();
+	}
+	
+	@Step
+	public void verifyThatYourVacationWasEditPage()
+	{
+		newVacationRequestPage.verifyThatYourVacationWasEditPage();
+	}
+	
+	
+	@Step
+	public void verifyThatYouAreOnVacationInfoPage()
+	{
+		newVacationRequestPage.verifyThatYouAreOnVacationInfoPage();
+	}
+	
+	
+	
+	@Step
+	public void clickVacationInfoBackBtn()
+	{
+		newVacationRequestPage.clickVacationInfoBackBtn();
+	}
+	
 	
 	
 
