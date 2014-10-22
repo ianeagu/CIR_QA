@@ -1,5 +1,9 @@
 package com.Testing_project.steps;
 
+import java.util.List;
+
+import org.junit.Assert;
+
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 
@@ -37,6 +41,12 @@ public class FreeDaysHistorySteps extends ScenarioSteps {
 	@Step
 	public void clickApplyBtn() {
 		freeDaysHistoryPage.clickApplyBtn();
+	}
+	
+	@Step
+	public void checkOperationDoesNotContain(String operationTypeNotWanted){
+	  List<String> OperationStrList = freeDaysHistoryPage.returnFreeDaysHistory();
+	  Assert.assertFalse("Operation column contains element that should not be there after filter!!!", OperationStrList.contains(operationTypeNotWanted));
 	}
 
 }
