@@ -53,6 +53,8 @@ public class MyRequests_typeHoliday_Test {
 		//click - apply
 		myRequestsSteps.clickApply();
 		
+		//verificare filtrare conform "Holiday type" - vacation
+		myRequestsSteps.checkVacationTypeDoesNotContain("Vacation Without Payment");
 		
 	}
 }

@@ -1,5 +1,7 @@
 package com.Testing_project.steps;
 
+import java.util.List;
+
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 
@@ -47,6 +49,10 @@ public class MyRequestsSteps extends ScenarioSteps {
 	public void clickApply() {
 		myRequestsPage.clickOnApplyButton();
 	}
-	
-	
+	@Step
+	public void checkVacationTypeDoesNotContain(String vacationTypeNotWanted){
+	  List<String> vacationTypeList_1 = myRequestsPage.returnVacationTypeList();
+	  Assert.assertFalse("Vacation type contains element that should not be there after filter!!!", vacationTypeList_1.contains(vacationTypeNotWanted));
+	 }
+		
 }
