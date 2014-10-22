@@ -1,4 +1,4 @@
-package com.Testing_project;
+package com.Testing_project.MyRequestsTests;
 
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.ManagedPages;
@@ -17,7 +17,7 @@ import com.Testing_project.steps.MyRequestsSteps;
 import com.Testing_project.utilities.Constants;
 
 @RunWith(ThucydidesRunner.class)
-public class MyRequestsTest {
+public class MyRequests_typeHoliday_Test {
 
 	@Managed(uniqueSession = true)
 	public WebDriver webdriver;
@@ -36,21 +36,24 @@ public class MyRequestsTest {
 	
 	@Steps
     MyRequestsSteps myRequestsSteps;
-	
-	
-	//test - intrare in "My requests" page si validare
+	  
+	//test - selectie "Vacation type"=holiday -> Apply -> tabel filtrat
 	@Test
-	public void myRequestsTest()
+	public void myRequests_holidayTest()
 	{
 		homePageSteps.is_the_home_page();
     	logInPageSteps.login(Constants.USERNAME, Constants.PASSWORD);
     	//click pe "VACATION"
     	mainMenuSteps.clickVacationTab();	
     	//click pe "My requests" - button
-    	myRequestsSteps.clickMyReqButton();    	
-    	//validare pagina "My requests" - prezenta label-ului "Show only future vacations"
-    	myRequestsSteps.label_ShouldbeDisplayed(true);   	 	
+    	myRequestsSteps.clickMyReqButton();
+		
+		//check - holiday
+		myRequestsSteps.checkHoliday();
+		//click - apply
+		myRequestsSteps.clickApply();
+		
+		//verificare filtrare conform "Holiday type" - vacation
+		myRequestsSteps.checkVacationTypeDoesNotContain("Sick Leave");
 	}
 }
-
-   
