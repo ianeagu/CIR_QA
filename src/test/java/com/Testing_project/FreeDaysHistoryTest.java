@@ -49,7 +49,7 @@ public class FreeDaysHistoryTest {
 		freeDaysHistorySteps.selectOneToFiveDaysNumber();
 		freeDaysHistorySteps.selectAddedDaysOperation();
 		freeDaysHistorySteps.clickApplyBtn();
-		freeDaysHistorySteps.checkOperationDoesNotContain("Added");
+		freeDaysHistorySteps.checkOperationDoesNotContain("Extra Days");
 	}
 	
 	
