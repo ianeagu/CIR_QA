@@ -12,9 +12,9 @@ public class VacationSteps  extends ScenarioSteps{
 	 */
 	private static final long serialVersionUID = 1L;
 MyRequestsPage vacationPage;
-	@Step
-	public void verifyThatYouAreOnVacationPage(String navigationHeaderTitle){
-		vacationPage.verifyThatYouAreOnVacationPage(navigationHeaderTitle);
-	}
+//	@Step
+//	public void verifyThatYouAreOnVacationPage(String navigationHeaderTitle){
+//		vacationPage.verifyThatYouAreOnVacationPage(navigationHeaderTitle);
+//	}
 
 }
