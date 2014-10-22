@@ -57,6 +57,12 @@ public class NewVacationRequestPage extends PageObject {
 	@FindBy(css = "#_evovacation_WAR_EvoVacationportlet_type_CM")
 	private WebElementFacade newVacationRequestSickLeaveBtn;
 	
+	@FindBy(css="#_evovacation_WAR_EvoVacationportlet_newVacationComment")
+	private WebElementFacade newVacationRequestsAddCommentBtn;
+	
+	@FindBy(css="#_evovacation_WAR_EvoVacationportlet_commentContent")
+	private WebElementFacade newVacationRequestsCommentSpace;
+	
 	
 	@FindBy(css="#_evovacation_WAR_EvoVacationportlet_saveButton")
 	private WebElementFacade newVacationSaveBtn;
@@ -130,7 +136,19 @@ public class NewVacationRequestPage extends PageObject {
 	public void clickNewVacationRequestSickLeaveBtn(){
 		newVacationRequestSickLeaveBtn.click();	
 	}
-		
+	
+	public void clickNewVacationRequestAddComment(){
+		newVacationRequestsAddCommentBtn.click();	
+	}
+	
+	public void clickNewVacationRequestCommentSpace(){
+		newVacationRequestsCommentSpace.click();	
+	}
+	
+	public void typeComment(String comment){
+		newVacationRequestsCommentSpace.sendKeys(comment);
+	}	
+	
 	public void clickNewVacationSaveBtn(){
 		newVacationSaveBtn.click();
 	}
