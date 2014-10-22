@@ -12,4 +12,6 @@ public class MainMenuPage extends PageObject {
 	public void clickVacationTab() {
 		vacationTab.click();
 	}
+	
+	
 }

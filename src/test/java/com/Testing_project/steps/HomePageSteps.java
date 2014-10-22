@@ -23,5 +23,4 @@ public class HomePageSteps extends ScenarioSteps {
 		homePage.click_SignIn_button();;
 	}
 	
-  
 }

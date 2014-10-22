@@ -18,10 +18,10 @@ public class FreeDaysHistoryPage extends PageObject {
 	@FindBy(id = "_evovacation_WAR_EvoVacationportlet_COCheckbox")
 	private WebElementFacade vacationDaysCheckBox;
 
-	@FindBy(id= "_evovacation_WAR_EvoVacationportlet_FIFTHCheckbox")
+	@FindBy(id = "_evovacation_WAR_EvoVacationportlet_FIFTHCheckbox")
 	private WebElementFacade oneFiveCheckBox;
 
-	@FindBy(id= "_evovacation_WAR_EvoVacationportlet_ADDED_DAYSCheckbox")
+	@FindBy(id = "_evovacation_WAR_EvoVacationportlet_ADDED_DAYSCheckbox")
 	private WebElementFacade addedDaysCheckBox;
 
 	@FindBy(css = "input[id='_evovacation_WAR_EvoVacationportlet_applyButton'] ")
@@ -51,14 +51,15 @@ public class FreeDaysHistoryPage extends PageObject {
 		applyBtn.click();
 
 	}
-	
-	public List<String> returnFreeDaysHistory(){
-		  List<WebElement> OperationList = getDriver().findElements(By.cssSelector("td[class*='header.type']"));
-		  List<String> OperationStrList = new ArrayList<String>();
-		  for (WebElement i : OperationList){
-			  OperationStrList.add(i.getText());
-		  }
-		  return OperationStrList;
+
+	public List<String> returnFreeDaysHistory() {
+		List<WebElement> OperationList = getDriver().findElements(
+				By.cssSelector("td[class*='header.type']"));
+		List<String> OperationStrList = new ArrayList<String>();
+		for (WebElement i : OperationList) {
+			OperationStrList.add(i.getText());
+		}
+		return OperationStrList;
 	}
 
 }

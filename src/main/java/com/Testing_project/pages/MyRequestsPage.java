@@ -1,5 +1,11 @@
 package com.Testing_project.pages;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+
 import net.thucydides.core.annotations.findby.FindBy;
 import net.thucydides.core.pages.PageObject;
 import net.thucydides.core.pages.WebElementFacade;
@@ -44,6 +50,16 @@ public class MyRequestsPage extends PageObject {
 	//metoda - click buton "Apply"
 	public void clickOnApplyButton() {
 		applyButton.click();
+	}
+	
+	//metoda pentru obtinerea unei liste de valori
+	public List<String> returnVacationTypeList(){
+		 List<WebElement> vacationTypeList = getDriver().findElements(By.cssSelector("td[class*='header.type'] a"));
+		 List<String> vacationTypeStrList = new ArrayList<String>();
+		 for (WebElement i : vacationTypeList){
+		   vacationTypeStrList.add(i.getText());
+		  }
+		  return vacationTypeStrList;
 	}
 		
 }
