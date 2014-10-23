@@ -14,5 +14,6 @@ public class Constants {
 	public static final String VACATION_INFO= "Vacation info";
 	public static final String WITHDRAW_VACATION= "There are no actions for a Withdrawn vacation.";
 	public static final String EDIT_VACATION= "Edit vacation from";
+	public static final String VIEW_VACATIONS= "View Vacations";
 	
 }
