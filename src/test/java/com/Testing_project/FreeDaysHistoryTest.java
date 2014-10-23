@@ -36,8 +36,7 @@ public class FreeDaysHistoryTest {
 
 	@Steps
 	FreeDaysHistorySteps freeDaysHistorySteps;
-	
-	
+
 	@Test
 	public void freeDaysHistory() {
 
@@ -45,12 +44,19 @@ public class FreeDaysHistoryTest {
 		logInPageSteps.login(Constants.USERNAME, Constants.PASSWORD);
 		homeSteps.clickVacationTab();
 		freeDaysHistorySteps.clickFreeDaysHistory();
-		freeDaysHistorySteps.selectVacationDaysType();
-		freeDaysHistorySteps.selectOneToFiveDaysNumber();
-		freeDaysHistorySteps.selectAddedDaysOperation();
+		// freeDaysHistorySteps.selectVacationDaysType();
+//		freeDaysHistorySteps.selectOneToFiveDaysNumber();
+		// freeDaysHistorySteps.selectAddedDaysOperation();
+
+		// freeDaysHistorySteps.checkTypeDoesNotContain("Extra Days");
+		// freeDaysHistorySteps.checkOperationDoesNotContain("Removed");
+		
+//		freeDaysHistorySteps.clickSelectVacationType("Vacation days");
+		freeDaysHistorySteps.clickSelectDaysNumber("6 - 10");
 		freeDaysHistorySteps.clickApplyBtn();
-		freeDaysHistorySteps.checkOperationDoesNotContain("Extra Days");
+		freeDaysHistorySteps.clickNumberRecordBtn();
+		freeDaysHistorySteps.checkVacationDaysNumberNotContain(1, 5);
+
 	}
-	
-	
+
 }
