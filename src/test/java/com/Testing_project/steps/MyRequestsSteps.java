@@ -3,9 +3,11 @@ package com.Testing_project.steps;
 import java.util.List;
 
 import net.thucydides.core.annotations.Step;
+import net.thucydides.core.annotations.findby.By;
 import net.thucydides.core.steps.ScenarioSteps;
 
 import org.junit.Assert;
+import org.openqa.selenium.WebElement;
 
 import com.Testing_project.pages.MainMenuPage;
 import com.Testing_project.pages.MyRequestsPage;
@@ -69,7 +71,7 @@ public class MyRequestsSteps extends ScenarioSteps {
 		myRequestsPage.clickOnAll();
 	}
 	
-	//----------------------------------------------------------------------------------------
+
 	//check -> "VACATION STATUS"
 	//check -> checkbox "Rejected"
 	@Step
@@ -98,11 +100,16 @@ public class MyRequestsSteps extends ScenarioSteps {
 		myRequestsPage.clickOnApplyButton();
 	}
 	
+	//click -> first element of the "Type" column
+	@Step
+	public void clickFirstElementTypeColumn() {
+		myRequestsPage.clickOnTypeColumnFirstElement();
+	}
+	
 	//metoda pentru selectia unei "Vacation Type"
+	@Step
 	public void selectVacationType(String typeVacation)
 	{
-//		int type=5;
-//		String selectTypeVacation;
 		if (typeVacation.contentEquals("All"))
 			checkAll();
 		else if (typeVacation.contentEquals("Holiday"))
@@ -115,6 +122,69 @@ public class MyRequestsSteps extends ScenarioSteps {
 			checkSickLeave();					
 	}
 	
+	//metoda pentru selectia automata - Vacation Type
+	@Step
+	public void selectOperationVacationType(String operation) {
+		   boolean found = false;
+		   List<WebElement> elements = getDriver().findElements(
+		       By.cssSelector("div[class='aui-column-content aui-column-content-first column-three-content '] div[class='column-content'] label"));
+		   for (WebElement element : elements) {
+		    System.out.println(element.getText());
+
+		    if (element.getText().toLowerCase()
+		      .equals(operation.toLowerCase())) {
+		     found = true;
+		     if (!element.isSelected())
+		      element.click();
+		     break;
+		    }
+
+		   }
+		   Assert.assertTrue("Vacation type is not found!", found);
+	}
+
+	//metoda pentru selectia automata - Days Number
+	@Step
+	public void selectOperationDaysNumber(String operation) 
+	{
+		 boolean found = false;
+		 List <WebElement> elements = getDriver().findElements(By.cssSelector("div[class='aui-column-content column-three-content column-center-content '] div[class='column-content'] label"));
+		 for (WebElement element : elements) 
+		 {
+			  System.out.println(element.getText());
+
+			  if (element.getText().replaceAll("\\s","").toLowerCase().equals(operation.replaceAll("\\s","").toLowerCase())) 
+			  {
+			    found = true;
+			    if (!element.isSelected())
+			    element.click();
+			    break;
+			   }
+		 }
+		 Assert.assertTrue("Days Number Selected is not found!", found);
+	}
+	
+	//metoda pentru selectia automata - Vacation Status
+	@Step
+	public void selectOperationVacationStatus(String operation) 
+	{
+		 boolean found = false;
+		 List <WebElement> elements = getDriver().findElements(By.cssSelector("div[class='aui-column-content aui-column-content-last column-three-content column-center-content '] div[class='column-content'] label"));
+		 for (WebElement element : elements) 
+		 {
+				 System.out.println(element.getText());
+
+				 if (element.getText().toLowerCase().equals(operation.toLowerCase())) 
+				 {
+				   found = true;
+				   if (!element.isSelected())
+				   element.click();
+				   break;
+				  }
+		 }
+		Assert.assertTrue("Vacation Status selected was not found!", found);
+	}
+	
 	//metoda pentru verificarea coloanei "Type"=vacation din tabel
 	//in variabila vacationTypeList_1 ->punem lista extrasa din tabel. Verificam sa nu contina alte valori decat "Holiday"
 	@Step
@@ -123,6 +193,52 @@ public class MyRequestsSteps extends ScenarioSteps {
 	  Assert.assertFalse("Vacation type contains element that should not be there after filter!!!", vacationTypeList_1.contains(vacationTypeNotWanted));
 	 }
 	
+	//TEST METODA VERIFICARE - "Vacation Type"
+	@Step
+	public void verifyVacationTypeColumn(String vacationTypeSelected){
+		boolean found = false;
+	  List<String> vacationTypeList_1 = myRequestsPage.returnVacationTypeList();
+	  for(int i=0; i<vacationTypeList_1.size(); i++){
+		  if (vacationTypeList_1.get(i).toLowerCase().equals(vacationTypeSelected.toLowerCase()))
+		  {
+			  found=true;
+			  break;		  
+		  }
+	  }
+	  Assert.assertTrue("The type column should not contain other values than the one selected !", found);
+	 }
+	
+	//TEST METODA VERIFICARE - "Vacation Status"
+	@Step
+	public void verifyVacationStatusColumn(String vacationStatusSelected){
+		boolean found = false;
+		 List<String> vacationTypeList_1 = myRequestsPage.returnVacationStatusList();
+		 for(int i=0; i<vacationTypeList_1.size(); i++){
+			 if (vacationTypeList_1.get(i).toLowerCase().equals(vacationStatusSelected.toLowerCase()))
+			 {
+				  found=true;
+				  break;		  
+			 }
+		 }
+		 Assert.assertTrue("The status column should not contain other values than the one selected !", found);
+	}
+	
+	//TEST METODA VERIFICARE - "Days Number"
+	@Step
+	 public void verifyDaysNumberColumn(int min , int max){
+	  List<Integer> daysNumberList_1 = myRequestsPage.returnDaysNumberList();
+	  System.out.println(daysNumberList_1.size());
+	  for(Integer day:daysNumberList_1){
+	   System.out.println(String.valueOf(day));
+	  
+	  // Assert.assertTrue("Nooooooooooooo!!!", day >= min && day <= max  );
+	   Assert.assertTrue("The values selected are not valid!!!", (day.compareTo(min) > 0 ||day.compareTo(min) == 0) && (day.compareTo(max) < 0 || day.compareTo(max) == 0)) ; 
+	   
+	  }
+	}
+	
+	
+		
 	//metoda pentru verificarea coloanei "Vacation Status"=rejected din tabel
 	//in variabila vacationStatusList_1 ->punem lista extrasa din tabel. Verificam sa nu contina alte valori decat "Rejected"
 	@Step
@@ -141,7 +257,7 @@ public class MyRequestsSteps extends ScenarioSteps {
 	   System.out.println(String.valueOf(day));
 	  
 	  // Assert.assertTrue("Nooooooooooooo!!!", day >= min && day <= max  );
-	   Assert.assertTrue("Nooooooooooooo!!!", (day.compareTo(min) > 0 ||day.compareTo(min) == 0) && (day.compareTo(max) < 0 || day.compareTo(max) == 0)) ; 
+	   Assert.assertTrue("The values selected are not valid!!!", (day.compareTo(min) > 0 ||day.compareTo(min) == 0) && (day.compareTo(max) < 0 || day.compareTo(max) == 0)) ; 
 	   
 	  }
 	}

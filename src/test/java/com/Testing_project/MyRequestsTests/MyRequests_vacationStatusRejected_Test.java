@@ -17,7 +17,7 @@ import com.Testing_project.steps.MyRequestsSteps;
 import com.Testing_project.utilities.Constants;
 
 @RunWith(ThucydidesRunner.class)
-public class MyRequests_typeHoliday_Test {
+public class MyRequests_vacationStatusRejected_Test {
 
 	@Managed(uniqueSession = true)
 	public WebDriver webdriver;
@@ -37,9 +37,9 @@ public class MyRequests_typeHoliday_Test {
 	@Steps
     MyRequestsSteps myRequestsSteps;
 	  
-	//test - selectie "Vacation type"=holiday -> Apply -> tabel filtrat
+	//test - selectie "Days Number"=1-5 -> Apply -> tabel filtrat
 	@Test
-	public void myRequests_holidayTest()
+	public void myRequests_DaysNumberTest()
 	{
 		homePageSteps.is_the_home_page();
     	logInPageSteps.login(Constants.USERNAME, Constants.PASSWORD);
@@ -48,12 +48,13 @@ public class MyRequests_typeHoliday_Test {
     	//click pe "My requests" - button
     	myRequestsSteps.clickMyReqButton();
 		
-		//check - holiday
-		myRequestsSteps.checkHoliday();
+		//check - >1-5
+		myRequestsSteps.checkRejected();
 		//click - apply
 		myRequestsSteps.clickApply();
 		
-		//verificare filtrare conform "Holiday type" - vacation
-		myRequestsSteps.verifyVacationTypeColumn("holiday");
+		//verificare filtrare conform "Holiday status" - rejection
+		myRequestsSteps.checkVacationStatusDoesNotContain("Pending");
+		myRequestsSteps.checkVacationStatusDoesNotContain("Cancelled");
 	}
 }

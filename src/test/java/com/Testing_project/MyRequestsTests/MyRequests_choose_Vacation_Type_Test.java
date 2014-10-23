@@ -17,7 +17,7 @@ import com.Testing_project.steps.MyRequestsSteps;
 import com.Testing_project.utilities.Constants;
 
 @RunWith(ThucydidesRunner.class)
-public class MyRequests_typeHoliday_Test {
+public class MyRequests_choose_Vacation_Type_Test {
 
 	@Managed(uniqueSession = true)
 	public WebDriver webdriver;
@@ -37,9 +37,10 @@ public class MyRequests_typeHoliday_Test {
 	@Steps
     MyRequestsSteps myRequestsSteps;
 	  
-	//test - selectie "Vacation type"=holiday -> Apply -> tabel filtrat
+	//test - selectie "Vacation Type" din test
+	 
 	@Test
-	public void myRequests_holidayTest()
+	public void myRequests_DaysNumberTest()
 	{
 		homePageSteps.is_the_home_page();
     	logInPageSteps.login(Constants.USERNAME, Constants.PASSWORD);
@@ -48,12 +49,16 @@ public class MyRequests_typeHoliday_Test {
     	//click pe "My requests" - button
     	myRequestsSteps.clickMyReqButton();
 		
-		//check - holiday
-		myRequestsSteps.checkHoliday();
-		//click - apply
-		myRequestsSteps.clickApply();
+    	//choose a holiday type
+    	myRequestsSteps.selectVacationType("Holiday");
+    	myRequestsSteps.selectVacationType("Special Vacation");
+    	   	
+    	//apply filters
+    	myRequestsSteps.clickApply();
 		
-		//verificare filtrare conform "Holiday type" - vacation
-		myRequestsSteps.verifyVacationTypeColumn("holiday");
+		//verificare filtrare conform "Vacation Type"=holiday
+		myRequestsSteps.checkVacationTypeDoesNotContain("Vacation Without Payment");
+		myRequestsSteps.checkVacationTypeDoesNotContain("Sick Leave");
+						
 	}
 }

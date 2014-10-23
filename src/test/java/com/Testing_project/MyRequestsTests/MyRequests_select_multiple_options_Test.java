@@ -17,7 +17,7 @@ import com.Testing_project.steps.MyRequestsSteps;
 import com.Testing_project.utilities.Constants;
 
 @RunWith(ThucydidesRunner.class)
-public class MyRequests_typeHoliday_Test {
+public class MyRequests_select_multiple_options_Test {
 
 	@Managed(uniqueSession = true)
 	public WebDriver webdriver;
@@ -37,9 +37,10 @@ public class MyRequests_typeHoliday_Test {
 	@Steps
     MyRequestsSteps myRequestsSteps;
 	  
-	//test - selectie "Vacation type"=holiday -> Apply -> tabel filtrat
+	//test - selectie "Vacation Type"=holiday ; selectie "Days Number"=1-5 ; selectie "Vacation Status"=Pending -> Apply -> tabel filtrat
+	 
 	@Test
-	public void myRequests_holidayTest()
+	public void myRequests_DaysNumberTest()
 	{
 		homePageSteps.is_the_home_page();
     	logInPageSteps.login(Constants.USERNAME, Constants.PASSWORD);
@@ -48,12 +49,27 @@ public class MyRequests_typeHoliday_Test {
     	//click pe "My requests" - button
     	myRequestsSteps.clickMyReqButton();
 		
-		//check - holiday
-		myRequestsSteps.checkHoliday();
-		//click - apply
-		myRequestsSteps.clickApply();
+    	//check - holiday
+    	myRequestsSteps.checkHoliday();
+    	
+		//check - >1-5
+		myRequestsSteps.checkDaysNumber15();
 		
-		//verificare filtrare conform "Holiday type" - vacation
+		//check - pending
+    	myRequestsSteps.checkPending();
+    	
+    	//apply filters
+    	myRequestsSteps.clickApply();
+		
+		//verificare filtrare conform "Vacation Type"=holiday
 		myRequestsSteps.verifyVacationTypeColumn("holiday");
+		
+		//verificare filtrare conform "Days Number"=1-5
+		myRequestsSteps.checkDaysNumberDoesNotContain(1,5);
+		
+		//verificare filtrare conform "Vacation Status"=Pending
+		myRequestsSteps.verifyVacationStatusColumn("pending");
+		
+				
 	}
 }

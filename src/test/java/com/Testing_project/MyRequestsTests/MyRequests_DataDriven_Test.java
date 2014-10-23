@@ -4,7 +4,8 @@ import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.ManagedPages;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.pages.Pages;
-import net.thucydides.junit.runners.ThucydidesRunner;
+import net.thucydides.junit.annotations.UseTestDataFrom;
+import net.thucydides.junit.runners.ThucydidesParameterizedRunner;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -16,8 +17,12 @@ import com.Testing_project.steps.MainMenuSteps;
 import com.Testing_project.steps.MyRequestsSteps;
 import com.Testing_project.utilities.Constants;
 
-@RunWith(ThucydidesRunner.class)
-public class MyRequests_typeHoliday_Test {
+@RunWith(ThucydidesParameterizedRunner.class)
+@UseTestDataFrom("resources/DataForTest.csv")
+
+public class MyRequests_DataDriven_Test {
+	
+	String vacationType, daysNumber, vacationStatus;
 
 	@Managed(uniqueSession = true)
 	public WebDriver webdriver;
@@ -37,7 +42,8 @@ public class MyRequests_typeHoliday_Test {
 	@Steps
     MyRequestsSteps myRequestsSteps;
 	  
-	//test - selectie "Vacation type"=holiday -> Apply -> tabel filtrat
+	
+	//test - Data-Driven selection for "My Requests"; filtering by "Vacation Type", "Days Number" and "Vacation Status"
 	@Test
 	public void myRequests_holidayTest()
 	{
@@ -48,12 +54,26 @@ public class MyRequests_typeHoliday_Test {
     	//click pe "My requests" - button
     	myRequestsSteps.clickMyReqButton();
 		
-		//check - holiday
-		myRequestsSteps.checkHoliday();
-		//click - apply
-		myRequestsSteps.clickApply();
-		
-		//verificare filtrare conform "Holiday type" - vacation
-		myRequestsSteps.verifyVacationTypeColumn("holiday");
+    	//selectie "Vacation Type"
+    	myRequestsSteps.selectOperationVacationType(vacationType);
+    	
+    	//selectie "Days Number"
+    	myRequestsSteps.selectOperationDaysNumber(daysNumber);
+    	
+    	//selectie "Vacation Status"
+    	myRequestsSteps.selectOperationVacationStatus(vacationStatus);
+    	
+    	//click - apply
+    	myRequestsSteps.clickApply();
+    	
+    	//verify column "Type"
+    	myRequestsSteps.verifyVacationTypeColumn(vacationType);
+    	
+//    	//verify column "Days Number"
+//    	myRequestsSteps.checkDaysNumberDoesNotContain();
+    	
+    	//verify column "Vacation Status"
+    	myRequestsSteps.verifyVacationStatusColumn(vacationStatus);
+    	
 	}
 }

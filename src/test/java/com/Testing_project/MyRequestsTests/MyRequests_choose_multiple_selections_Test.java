@@ -17,7 +17,7 @@ import com.Testing_project.steps.MyRequestsSteps;
 import com.Testing_project.utilities.Constants;
 
 @RunWith(ThucydidesRunner.class)
-public class MyRequests_typeHoliday_Test {
+public class MyRequests_choose_multiple_selections_Test {
 
 	@Managed(uniqueSession = true)
 	public WebDriver webdriver;
@@ -37,9 +37,9 @@ public class MyRequests_typeHoliday_Test {
 	@Steps
     MyRequestsSteps myRequestsSteps;
 	  
-	//test - selectie "Vacation type"=holiday -> Apply -> tabel filtrat
+	//test - selectie multipla
 	@Test
-	public void myRequests_holidayTest()
+	public void myRequests_DaysNumberTest()
 	{
 		homePageSteps.is_the_home_page();
     	logInPageSteps.login(Constants.USERNAME, Constants.PASSWORD);
@@ -47,13 +47,30 @@ public class MyRequests_typeHoliday_Test {
     	mainMenuSteps.clickVacationTab();	
     	//click pe "My requests" - button
     	myRequestsSteps.clickMyReqButton();
+    	
+    	//select "Vacation Type" -> holiday
+    	myRequestsSteps.selectOperationVacationType("Holiday");
+    	//select "Days Number" -> 1-5 
+    	myRequestsSteps.selectOperationDaysNumber("1 - 5");
+    	//select "Vacation Status" -> pending
+    	myRequestsSteps.selectOperationVacationStatus("Pending");
+    	//apply options
+    	myRequestsSteps.clickApply();
+    	
+    	//verify table filtering - for "Holiday"
+    	myRequestsSteps.checkVacationTypeDoesNotContain("Vacation Without Payment");
+    	myRequestsSteps.checkVacationTypeDoesNotContain("Special Vacation");
+    	myRequestsSteps.checkVacationTypeDoesNotContain("Sick Leave");
+		   	
+    	//verify table filtering - for days number->1-5
+    	myRequestsSteps.checkDaysNumberDoesNotContain(1,5);
+    	   	
+    	//verify table filtering - for "Pending"
+    	myRequestsSteps.checkVacationStatusDoesNotContain("Approved");
+    	myRequestsSteps.checkVacationStatusDoesNotContain("Rejected");
+    	myRequestsSteps.checkVacationStatusDoesNotContain("Withdrawn");
+    	myRequestsSteps.checkVacationStatusDoesNotContain("Cancelled");
+    	
 		
-		//check - holiday
-		myRequestsSteps.checkHoliday();
-		//click - apply
-		myRequestsSteps.clickApply();
-		
-		//verificare filtrare conform "Holiday type" - vacation
-		myRequestsSteps.verifyVacationTypeColumn("holiday");
 	}
 }
