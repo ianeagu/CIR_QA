@@ -115,7 +115,7 @@ public class FreeDaysHistorySteps extends ScenarioSteps {
 	
 	@Step
 	public void clickSelectDaysNumber(String daysNumber) {
-		freeDaysHistoryPage.selectVacationType(daysNumber);
+		freeDaysHistoryPage.selectDaysNumber(daysNumber);
 
 	}
 	
