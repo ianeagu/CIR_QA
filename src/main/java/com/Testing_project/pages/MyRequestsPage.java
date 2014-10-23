@@ -3,12 +3,12 @@ package com.Testing_project.pages;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-
 import net.thucydides.core.annotations.findby.FindBy;
 import net.thucydides.core.pages.PageObject;
 import net.thucydides.core.pages.WebElementFacade;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 
 public class MyRequestsPage extends PageObject {
 	
@@ -67,9 +67,11 @@ public class MyRequestsPage extends PageObject {
 	@FindBy(css = "label[for*='FIFTHCheckbox']")
 	public WebElementFacade daysNumber15;
 	
+	//identificare ELEMENT TABEL
+	@FindBy(css ="td[id='_evovacation_WAR_EvoVacationportlet_evozonVacationsSearchContainer_col-my.request.column.header.type_row-1'] a")
+	public WebElementFacade tableTypeFirstElement;
 	
-	//---------------------------------------------------------------------------------------------------------------------------------
-	//metoda - click buton "New Request"
+	
 	public void clickOnMyRequests() {
 		myRequestsButton.click();
 	}
@@ -79,7 +81,7 @@ public class MyRequestsPage extends PageObject {
 		return futureVacationsLabel.isPresent();
 	}
 	
-	//-----------------------------------------------------------------------------------------------------------------------
+
 	//metode pentru checkbox-uri "Vacation Type"
 	//metoda - click checkbox "Holiday"
 	public void clickOnHoliday() {
@@ -107,7 +109,6 @@ public class MyRequestsPage extends PageObject {
 	}
 	
 	
-	//-------------------------------------------------------------------------------------------------------------------------------------
 	//metode pentru checkbox-uri "Vacation Status"
 	//metoda - click checkbox "Rejected"
 	public void clickOnRejected() {
@@ -124,6 +125,13 @@ public class MyRequestsPage extends PageObject {
 	//metoda - click checkbox "1-5"
 	public void clickOnDaysNr15() {
 		daysNumber15.click();
+	}
+	
+	
+	//metoda - click first element in column "Type" of the table
+	public void clickOnTypeColumnFirstElement() {
+		tableTypeFirstElement.click();
+		System.out.println("Click is performed!");
 	}
 	
 	//metoda - click buton "Apply"
