@@ -44,13 +44,19 @@ public class FreeDaysHistoryTest {
 		logInPageSteps.login(Constants.USERNAME, Constants.PASSWORD);
 		homeSteps.clickVacationTab();
 		freeDaysHistorySteps.clickFreeDaysHistory();
-		freeDaysHistorySteps.selectVacationDaysType();
-		freeDaysHistorySteps.selectOneToFiveDaysNumber();
-		freeDaysHistorySteps.selectAddedDaysOperation();
+		// freeDaysHistorySteps.selectVacationDaysType();
+//		freeDaysHistorySteps.selectOneToFiveDaysNumber();
+		// freeDaysHistorySteps.selectAddedDaysOperation();
+
+		// freeDaysHistorySteps.checkTypeDoesNotContain("Extra Days");
+		// freeDaysHistorySteps.checkOperationDoesNotContain("Removed");
+		
+//		freeDaysHistorySteps.clickSelectVacationType("Vacation days");
+		freeDaysHistorySteps.clickSelectDaysNumber("6 - 10");
 		freeDaysHistorySteps.clickApplyBtn();
-		freeDaysHistorySteps.checkTypeDoesNotContain("Extra Days");
-		freeDaysHistorySteps.checkOperationDoesNotContain("Removed");
-		freeDaysHistorySteps.checkDaysNotContain(2,5);
+		freeDaysHistorySteps.clickNumberRecordBtn();
+		freeDaysHistorySteps.checkVacationDaysNumberNotContain(1, 5);
+
 	}
 
 }

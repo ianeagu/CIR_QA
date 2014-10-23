@@ -42,6 +42,12 @@ public class FreeDaysHistorySteps extends ScenarioSteps {
 	public void clickApplyBtn() {
 		freeDaysHistoryPage.clickApplyBtn();
 	}
+	
+	@Step
+	public void clickNumberRecordBtn() {
+		freeDaysHistoryPage.clickNumberRecordBtn();
+	}
+
 
 	@Step
 	public void checkTypeDoesNotContain(String operationTypeNotWanted) {
@@ -61,39 +67,57 @@ public class FreeDaysHistorySteps extends ScenarioSteps {
 				OperationStrList.contains(operationTypeNotWanted));
 	}
 
+	// @Step
+	// public void checkDaysDoesNotContain(Integer operationTypeNotWanted) {
+	// List<Integer> NumberIntList = freeDaysHistoryPage
+	// .returnFreeDaysHistoryNumber();
+	// Assert.assertFalse(
+	// "Number column contains element that should not be there after filter!!!",
+	// NumberIntList.contains(operationTypeNotWanted));
+	// }
+
+
 //	@Step
-//	public void checkDaysDoesNotContain(Integer operationTypeNotWanted) {
-//		List<Integer> NumberIntList = freeDaysHistoryPage
+//	public void checkDaysNotContain(int min, int max) {
+//		boolean var = true;
+//		List<Integer> numberList = freeDaysHistoryPage
 //				.returnFreeDaysHistoryNumber();
+//		for (int i : numberList) {
+//			if ((i <= min) && (i >= max))
+//				var = false;
+//		}
 //		Assert.assertFalse(
 //				"Number column contains element that should not be there after filter!!!",
-//				NumberIntList.contains(operationTypeNotWanted));
+//				var);
 //	}
 
-	@Step
-	public void checkDaysNotContain(int min, int max) {
-		boolean var = true;
-		List<Integer> numberList = freeDaysHistoryPage
-				.returnFreeDaysHistoryNumber();
-		for (int i = 1; i < numberList.size(); i++){
-			if ((i <= min) && (i >= max))
-				var = false;
-		}
-		Assert.assertFalse( "Number column contains element that should not be there after filter!!!", var);
-	}
+	 @Step
+	 public void checkVacationDaysNumberNotContain(int min , int max){
+	 List<Integer> daysNumberList =
+	 freeDaysHistoryPage.returnFreeDaysHistoryNumber();
+	 System.out.println(daysNumberList.size());
+	 for(Integer day:daysNumberList){
+	 System.out.println(String.valueOf(day));
+	
+	 // Assert.assertTrue("Nooooooooooooo!!!", day >= min && day <= max );
+	 Assert.assertTrue("Number column contains element that should not be there after filter!!!!!!",
+	 (day.compareTo(min) > 0 ||day.compareTo(min) == 0) && (day.compareTo(max)
+	 < 0 || day.compareTo(max) == 0)) ;
+	
+	 }
+	 }
 
-	/*
-	 * @Step public void checkVacationDaysNumberNotContain(int min , int max){
-	 * List<Integer> daysNumberList = myrequestspage.returnDaysNumberList();
-	 * System.out.println(daysNumberList.size()); for(Integer
-	 * day:daysNumberList){ System.out.println(String.valueOf(day));
-	 * 
-	 * // Assert.assertTrue("Nooooooooooooo!!!", day >= min && day <= max );
-	 * Assert.assertTrue("Nooooooooooooo!!!", (day.compareTo(min) > 0
-	 * ||day.compareTo(min) == 0) && (day.compareTo(max) < 0 ||
-	 * day.compareTo(max) == 0)) ;
-	 * 
-	 * }
-	 */
+	@Step
+	public void clickSelectVacationType(String vacationType) {
+		freeDaysHistoryPage.selectVacationType(vacationType);
+
+	}
+	
+	@Step
+	public void clickSelectDaysNumber(String daysNumber) {
+		freeDaysHistoryPage.selectVacationType(daysNumber);
+
+	}
+	
 
 }
