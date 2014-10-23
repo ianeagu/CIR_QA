@@ -1,4 +1,4 @@
-package com.Testing_project;
+package com.Testing_project.MyRequestsTests;
 
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.ManagedPages;
