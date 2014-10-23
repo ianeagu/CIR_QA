@@ -193,6 +193,52 @@ public class MyRequestsSteps extends ScenarioSteps {
 	  Assert.assertFalse("Vacation type contains element that should not be there after filter!!!", vacationTypeList_1.contains(vacationTypeNotWanted));
 	 }
 	
+	//TEST METODA VERIFICARE - "Vacation Type"
+	@Step
+	public void verifyVacationTypeColumn(String vacationTypeSelected){
+		boolean found = false;
+	  List<String> vacationTypeList_1 = myRequestsPage.returnVacationTypeList();
+	  for(int i=0; i<vacationTypeList_1.size(); i++){
+		  if (vacationTypeList_1.get(i).toLowerCase().equals(vacationTypeSelected.toLowerCase()))
+		  {
+			  found=true;
+			  break;		  
+		  }
+	  }
+	  Assert.assertTrue("The type column should not contain other values than the one selected !", found);
+	 }
+	
+	//TEST METODA VERIFICARE - "Vacation Status"
+	@Step
+	public void verifyVacationStatusColumn(String vacationStatusSelected){
+		boolean found = false;
+		 List<String> vacationTypeList_1 = myRequestsPage.returnVacationStatusList();
+		 for(int i=0; i<vacationTypeList_1.size(); i++){
+			 if (vacationTypeList_1.get(i).toLowerCase().equals(vacationStatusSelected.toLowerCase()))
+			 {
+				  found=true;
+				  break;		  
+			 }
+		 }
+		 Assert.assertTrue("The status column should not contain other values than the one selected !", found);
+	}
+	
+	//TEST METODA VERIFICARE - "Days Number"
+	@Step
+	 public void verifyDaysNumberColumn(int min , int max){
+	  List<Integer> daysNumberList_1 = myRequestsPage.returnDaysNumberList();
+	  System.out.println(daysNumberList_1.size());
+	  for(Integer day:daysNumberList_1){
+	   System.out.println(String.valueOf(day));
+	  
+	  // Assert.assertTrue("Nooooooooooooo!!!", day >= min && day <= max  );
+	   Assert.assertTrue("The values selected are not valid!!!", (day.compareTo(min) > 0 ||day.compareTo(min) == 0) && (day.compareTo(max) < 0 || day.compareTo(max) == 0)) ; 
+	   
+	  }
+	}
+	
+	
+		
 	//metoda pentru verificarea coloanei "Vacation Status"=rejected din tabel
 	//in variabila vacationStatusList_1 ->punem lista extrasa din tabel. Verificam sa nu contina alte valori decat "Rejected"
 	@Step

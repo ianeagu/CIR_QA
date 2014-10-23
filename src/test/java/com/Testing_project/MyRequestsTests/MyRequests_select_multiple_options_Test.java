@@ -62,18 +62,14 @@ public class MyRequests_select_multiple_options_Test {
     	myRequestsSteps.clickApply();
 		
 		//verificare filtrare conform "Vacation Type"=holiday
-		myRequestsSteps.checkVacationTypeDoesNotContain("Vacation Without Payment");
-		myRequestsSteps.checkVacationTypeDoesNotContain("Special Vacation");
-		myRequestsSteps.checkVacationTypeDoesNotContain("Sick Leave");
+		myRequestsSteps.verifyVacationTypeColumn("holiday");
 		
 		//verificare filtrare conform "Days Number"=1-5
 		myRequestsSteps.checkDaysNumberDoesNotContain(1,5);
 		
 		//verificare filtrare conform "Vacation Status"=Pending
-		myRequestsSteps.checkVacationStatusDoesNotContain("Approved");
-		myRequestsSteps.checkVacationStatusDoesNotContain("Rejected");
-		myRequestsSteps.checkVacationStatusDoesNotContain("Withdrawn");
-		myRequestsSteps.checkVacationStatusDoesNotContain("Cancelled");
+		myRequestsSteps.verifyVacationStatusColumn("pending");
+		
 				
 	}
 }

@@ -37,7 +37,7 @@ public class MyRequests_choose_multiple_selections_Test {
 	@Steps
     MyRequestsSteps myRequestsSteps;
 	  
-	//test - selectie "Days Number"=1-5 -> Apply -> tabel filtrat
+	//test - selectie multipla
 	@Test
 	public void myRequests_DaysNumberTest()
 	{
