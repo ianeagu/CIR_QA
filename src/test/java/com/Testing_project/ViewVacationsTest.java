@@ -57,10 +57,17 @@ public class ViewVacationsTest {
     	viewVacationsSteps.clickVacationType("holiday");
     	viewVacationsSteps.clickDaysNumber("1 - 5");
     	viewVacationsSteps.clickVacationStatus("approved");
+    	viewVacationsSteps.clickViewVacationsLastName();
+    	viewVacationsSteps.clickViewVacationsLastName("Dragomir");
+    	viewVacationsSteps.clickViewVacationsFirstName();
+    	viewVacationsSteps.clickViewVacationsFirstName("Andrei");
     	viewVacationsSteps.clickApplyBtn();
     	viewVacationsSteps.verifyVacationType("holiday");
     	viewVacationsSteps.verifyDaysNumber(1,5);
     	viewVacationsSteps.verifyVacationStatus("approved");
+    	viewVacationsSteps.verifyEmployeeName("Andrei","Dragomir");
+    	
+    	
     	
     }
   

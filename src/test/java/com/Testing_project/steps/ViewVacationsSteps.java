@@ -72,6 +72,37 @@ public class ViewVacationsSteps extends ScenarioSteps {
 		viewVacationsPage.verifyVacationStatus(vacationStatus);
 	}
 	
+	@Step
+	public void verifyEmployeeName(String firstName, String lastName)
+	{
+		viewVacationsPage.verifyEmployeeName(firstName,lastName);
+	}
+	
+	@Step
+	public void clickViewVacationsLastName()
+	{
+		viewVacationsPage.clickViewVacationsLastName();
+	}
+	
+	@Step
+	public void clickViewVacationsLastName(String comment)
+	{
+		
+		viewVacationsPage.clickViewVacationsLastName(comment);
+    }
+	
+	@Step
+	public void clickViewVacationsFirstName()
+	{
+		viewVacationsPage.clickViewVacationsFirstName();
+	}
+	
+	@Step
+	public void clickViewVacationsFirstName (String comment)
+	{
+		
+		viewVacationsPage.clickViewVacationsFirstName(comment);
+    }
 }
 
 	
