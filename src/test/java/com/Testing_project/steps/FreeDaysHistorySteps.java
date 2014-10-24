@@ -120,7 +120,7 @@ public class FreeDaysHistorySteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void clickTypeDoesNotContain(String operationType) {
+	public void clickSelectOperationType(String operationType) {
 		freeDaysHistoryPage.selectOperationType(operationType);
 
 	}
