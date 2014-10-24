@@ -27,6 +27,12 @@ public class ViewVacationsPage extends PageObject {
 	
 	@FindBy(css="div[class='page-links']")
 	private WebElementFacade pagesContainer;
+	
+	@FindBy(css="#_evovacation_WAR_EvoVacationportlet_viewVacationsLastName")
+	private WebElementFacade viewVacationsLastName;
+	
+	@FindBy(css="#_evovacation_WAR_EvoVacationportlet_viewVacationsFirstName")
+	private WebElementFacade viewVacationsFirstName;
 				
 	public void clickViewVacationsBtn() {
 		viewVacationsBtn.click();
@@ -221,6 +227,62 @@ public class ViewVacationsPage extends PageObject {
 		  }
 
 		 }
+	public void verifyEmployeeName(String firstName, String lastName) {
+		  waitABit(2000);
+		  //WebElement goToFirstPage = getDriver().findElement(By.cssSelector("span[class='aui-paginator-link aui-paginator-first-link']"));
+		  
+		  List<Integer> numberOfPagesList = StringUtils
+		    .getAllIntegerNumbersFromString(pagesContainer.getText());
+		  int noOfPages = numberOfPagesList.get(1);
+		  System.out.println("Pages number: " + noOfPages);
+		  waitABit(2000);
+
+		  for (int i = 0; i < noOfPages; i++) {
+		   waitABit(2000);
+		   List<WebElement> items = getDriver()
+		     .findElements(
+		       By.cssSelector("table[class='taglib-search-iterator'] tr td:nth-child(1)"));
+		   waitABit(2000);
+		   System.out.println("Items size: " + items.size());
+		   items.remove(0);
+		   System.out.println("Items size: " + items.size());
+		   for (WebElement item : items) {
+		    System.out.println(item.getText());
+		    $(item).waitUntilVisible();
+		    Assert.assertTrue(
+		      "hopahopa",item.getText().toLowerCase().contentEquals(firstName.toLowerCase()+" "+lastName.toLowerCase()));
+		      
+
+		   }
+
+		   if (i < noOfPages - 1) {
+		    WebElement nextButton= getDriver().findElement(By.cssSelector("div[class='page-links'] a[class='aui-paginator-link aui-paginator-next-link']"));
+		    nextButton.click();
+
+		   }
+		  }
+
+		 }
+	
+	
+	public void clickViewVacationsLastName() {
+		viewVacationsLastName.click();
+	}
+	
+	
+	public void clickViewVacationsLastName(String comment){
+	  viewVacationsLastName.sendKeys(comment);
+	}	
+	
+	public void clickViewVacationsFirstName() {
+		viewVacationsFirstName.click();
+	}
+	
+	public void clickViewVacationsFirstName(String comment){
+		  viewVacationsFirstName.sendKeys(comment); 
+		}	
+		
+	
 }
 
 	
