@@ -3,8 +3,6 @@ package com.Testing_project.pages;
 import java.util.ArrayList;
 import java.util.List;
 
-
-
 import net.thucydides.core.annotations.findby.By;
 import net.thucydides.core.annotations.findby.FindBy;
 import net.thucydides.core.pages.PageObject;
@@ -29,11 +27,9 @@ public class FreeDaysHistoryPage extends PageObject {
 
 	@FindBy(css = "input[id='_evovacation_WAR_EvoVacationportlet_applyButton'] ")
 	private WebElementFacade applyBtn;
-	
-	@FindBy(css="select[class='aui-field-input aui-field-input-select aui-field-input-menu'] option[value='75']")
+
+	@FindBy(css = "select[class='aui-field-input aui-field-input-select aui-field-input-menu'] option[value='75']")
 	private WebElementFacade numberRecodrdBtn;
-	
-	
 
 	public void clickFreeDaysHistory() {
 		freeDaysHistory.click();
@@ -59,8 +55,6 @@ public class FreeDaysHistoryPage extends PageObject {
 		applyBtn.click();
 
 	}
-	
-	
 
 	public List<String> returnFreeDaysHistoryType() {
 		List<WebElement> TypeList = getDriver().findElements(
@@ -91,54 +85,76 @@ public class FreeDaysHistoryPage extends PageObject {
 		}
 		return NumberIntList;
 	}
-	
+
 	public void selectVacationType(String vacationType) {
-		  boolean found = false;
-		  List<WebElement> elements = getDriver()
-		    .findElements(
-		      By.cssSelector(".aui-column-content.aui-column-content-first.column-three-content > .column-content >.aui-field.aui-field-choice >.aui-field-content label"));
-		   System.out.println(elements.size());
-		  for (WebElement element : elements) {
-		   System.out.println(element.getText());
+		boolean found = false;
+		List<WebElement> elements = getDriver()
+				.findElements(
+						By.cssSelector(".aui-column-content.aui-column-content-first.column-three-content > .column-content >.aui-field.aui-field-choice >.aui-field-content label"));
+		System.out.println(elements.size());
+		for (WebElement element : elements) {
+			System.out.println(element.getText());
 
-		   if (element.getText().toLowerCase()
-		     .contains(vacationType.toLowerCase())) {
-		    found = true;
-		    if (!element.isSelected())
-		     element.click();
-		    break;
-		   }
+			if (element.getText().toLowerCase()
+					.contains(vacationType.toLowerCase())) {
+				found = true;
+				if (!element.isSelected())
+					element.click();
+				break;
+			}
 
-		  }
-		  Assert.assertTrue("Vacation type was not found!", found);
+		}
+		Assert.assertTrue("Vacation type was not found!", found);
 
-		 }
+	}
+
 	public void selectDaysNumber(String daysNumber) {
-		  boolean found = false;
-		  List<WebElement> elements = getDriver()
-		    .findElements(
-		      By.cssSelector("div[class='aui-column column-three column-center '] div[class='column-content'] label"));
-		   System.out.println(elements.size());
-		  for (WebElement element : elements) {
-		   System.out.println(element.getText());
+		boolean found = false;
+		List<WebElement> elements = getDriver()
+				.findElements(
+						By.cssSelector("div[class='aui-column-content column-three-content '] div[class='column-content'] span[class='aui-field-content'] label"));
+		System.out.println(elements.size());
+		for (WebElement element : elements) {
+			System.out.println(element.getText());
 
-		   if (element.getText().toLowerCase()
-		     .contains(daysNumber.toLowerCase())) {
-		    found = true;
-		    if (!element.isSelected())
-		     element.click();
-		    break;
-		   }
+			if (element.getText().toLowerCase()
+					.contains(daysNumber.toLowerCase())) {
+				found = true;
+				if (!element.isSelected())
+					element.click();
+				break;
+			}
 
-		  }
-		  Assert.assertTrue("Days number was not found!", found);
+		}
+		Assert.assertTrue("Days number was not found!", found);
 
-		 }
-	
+	}
+
+	public void selectOperationType(String operationType) {
+		boolean found = false;
+		List<WebElement> elements = getDriver()
+				.findElements(
+						By.cssSelector("div[class='aui-column column-three aui-column-last'] div[class='aui-column-content aui-column-content-last column-three-content '] span[class='aui-field-content'] label"));
+		System.out.println(elements.size());
+		for (WebElement element : elements) {
+			System.out.println(element.getText());
+
+			if (element.getText().toLowerCase()
+					.contains(operationType.toLowerCase())) {
+				found = true;
+				if (!element.isSelected())
+					element.click();
+				break;
+			}
+
+		}
+		Assert.assertTrue("Operation type was not found!", found);
+
+	}
 
 	public void clickNumberRecordBtn() {
 		numberRecodrdBtn.click();
-		
+
 	}
 
 }
