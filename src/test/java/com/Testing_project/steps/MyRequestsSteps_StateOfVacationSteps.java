@@ -32,6 +32,12 @@ public class MyRequestsSteps_StateOfVacationSteps extends ScenarioSteps {
 	public void textVacationInfoShouldBeDisplayed(boolean expected) {
 		Assert.assertEquals(expected, stateOfVacationRequestPage.vacationInfoPresence());
 	}
+	
+	//click -> buton "Withdraw"
+		@Step
+		public void clickWithdraw() {
+			stateOfVacationRequestPage.clickWithdraw();
+		}
 } 
 		
 

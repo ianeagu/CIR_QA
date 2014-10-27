@@ -54,10 +54,10 @@ public class EmailReadingTest {
 		String username="irina.neagu";
 		String password="irinaEvo10#";
 		String sender="EvoPortal Team <evoportal@evozon.com>";
-		String subj="New Vacation Request submitted by Andrei Dragomir";
-		String holiday = "The user will be on holiday between";
-		String startDate = "4/December/2014";
-		String endDate = "18/December/2014";
+		String subj="You have submitted a new Vacation Request";
+		String holiday = "You have submitted a new Vacation Request";
+		String startDate = "27/October/2014";
+		String endDate = "29/October/2014";
 		//homePageSteps.is_the_home_page();
     	//logInPageSteps.login(Constants.USERNAME, Constants.PASSWORD);
     	
@@ -67,6 +67,16 @@ public class EmailReadingTest {
 		//emailReadingSteps.accesingInboxFolderAllUnreadEmails(username,password);
 		//emailReadingSteps.accesingUnreadEmailsFromCertainSenderWithCertainSubject(username,password,sender,subj);
 		emailReadingSteps.accesingUnreadEmailsFromCertainSenderWithCertainSubjectAndCertainContent(username,password,sender,subj,holiday,startDate,endDate);
+		
+		//generate mail-file/ New Vacation Request
+		String name="Ionut Mihai";
+		String startdate="27/October/2014";
+		String endate="29/October/2014";
+		String approver="Roxana Toader";
+		String newmail;
+		newmail=emailReadingSteps.createMailNewVacationRequest(name,startdate,endate,approver);
+		System.out.println("New mail:\n"+newmail);
+		//emailReadingSteps.test(username, password, sender, subj, holiday, startDate, endDate);
 	}
 }
 
