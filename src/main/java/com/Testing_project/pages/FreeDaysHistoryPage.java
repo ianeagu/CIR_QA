@@ -85,6 +85,16 @@ public class FreeDaysHistoryPage extends PageObject {
 		}
 		return NumberIntList;
 	}
+	//lista cu data adaugarii concediului
+	public List<Integer> returnAddedDay() {
+		List<WebElement> AddedDayList = getDriver().findElements(
+				By.cssSelector("td[class*='header.added']"));
+		List<Integer> AddedDayStrList = new ArrayList<Integer>();
+		for (WebElement i : AddedDayList) {
+			AddedDayStrList.add(Integer.parseInt(i.getText()));
+		}
+		return AddedDayStrList;
+	}
 
 	public void selectVacationType(String vacationType) {
 		boolean found = false;

@@ -20,7 +20,7 @@ public class HomePageSteps extends ScenarioSteps {
 	//functie (click) buton "Sign In" din "Home Page"
 	@Step
 	public void click_SignIn_home() {
-		homePage.click_SignIn_button();;
+		homePage.click_SignIn_button();
 	}
 	
 }

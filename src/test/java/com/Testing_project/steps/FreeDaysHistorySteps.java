@@ -65,6 +65,8 @@ public class FreeDaysHistorySteps extends ScenarioSteps {
 				"Operation column contains element that should not be there after filter!!!",
 				OperationStrList.contains(operationTypeNotWanted));
 	}
+	
+	
 
 	// @Step
 	// public void checkDaysDoesNotContain(Integer operationTypeNotWanted) {
