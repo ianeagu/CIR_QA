@@ -26,7 +26,7 @@ public class RamonaTest {
     @Managed(uniqueSession = true)
     public WebDriver webdriver;
 
-    @ManagedPages(defaultUrl = Constants.LOGIN_URL)
+    @ManagedPages(defaultUrl =Constants.LOGIN_URL)
     public Pages pages;
 
     @Steps
@@ -45,29 +45,29 @@ public class RamonaTest {
     public void test_New_Req() throws ParseException
     {
     	
-    	homePageSteps.is_the_home_page();
-    	logInPageSteps.login(Constants.USERNAME, Constants.PASSWORD);
-    	homeSteps.clickVacationTab();
-    	newVacationRequestSteps.clickNewVacationRequest();
+     	homePageSteps.is_the_home_page();
+	    logInPageSteps.login(Constants.USERNAME, Constants.PASSWORD);
+	    homeSteps.clickVacationTab();
+	    newVacationRequestSteps.clickNewVacationRequest();
     	newVacationRequestSteps.verifyThatYouAreOnCreateNewVacationRequestPage();
-    	newVacationRequestSteps.selectStartDate(8, 19, 2014);
-    	newVacationRequestSteps.selectEndDate(8, 19, 2014);
-//    	newVacationRequestSteps.clickNewVacationRequestHolidayBtn();
-//    	newVacationRequestSteps.clickNewVacationRequestVacationWithoutPaymentBtn();
+     	newVacationRequestSteps.selectStartDate(7, 15, 2014);
+    	newVacationRequestSteps.selectEndDate(7, 15, 2014);
+    	//newVacationRequestSteps.clickNewVacationRequestHolidayBtn();
+        //newVacationRequestSteps.clickNewVacationRequestVacationWithoutPaymentBtn();
         newVacationRequestSteps.clickNewVacationRequestSpecialVacationBtn();
     	newVacationRequestSteps.chooseChildren();
-//    	newVacationRequestSteps.clickNewVacationRequestSickLeaveBtn();
-//    	
-    	newVacationRequestSteps.clickNewVacationRequestAddCommentBtn();
+////    	newVacationRequestSteps.clickNewVacationRequestSickLeaveBtn();
+////    	
+     	newVacationRequestSteps.clickNewVacationRequestAddCommentBtn();
     	newVacationRequestSteps.clickNewVacationRequestCommentSpace();
     	newVacationRequestSteps.clickNewVacationRequestAddComment("I'll go in a trip");
-    	newVacationRequestSteps.clickNewVacationSaveBtn();
-//    	newVacationRequestSteps.clickNewVacationWithdrawBtn();
-     	newVacationRequestSteps.clickNewVacationEditBtn();
-//    	newVacationRequestSteps.verifyThatYourVacationWasWithdrawPage();
+        newVacationRequestSteps.clickNewVacationSaveBtn();
+////    	newVacationRequestSteps.clickNewVacationWithdrawBtn();
+    	newVacationRequestSteps.clickNewVacationEditBtn();
+////    	newVacationRequestSteps.verifyThatYourVacationWasWithdrawPage();
     	newVacationRequestSteps.verifyThatYourVacationWasEditPage();
-//    	newVacationRequestSteps.verifyThatYouAreOnVacationInfoPage();
-//     	newVacationRequestSteps.clickVacationInfoBackBtn();
+        newVacationRequestSteps.verifyThatYouAreOnVacationInfoPage();
+        newVacationRequestSteps.clickVacationInfoBackBtn();
 
     }
   
